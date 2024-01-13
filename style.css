@@ -1,0 +1,89 @@
+* {
+  /* background-color: black; */
+  @font-face {
+    font-family: "Netflix Sans";
+    font-weight: 300;
+    font-display: optional;
+    src: url(https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Lt.woff2)
+        format("woff2"),
+      url(https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Lt.woff)
+        format("woff");
+  }
+
+  /* text-align: center; */
+
+  /* margin-top: 40px; */
+}
+
+body {
+  background-image: url("/images/alien.webp");
+  background-size: cover; /* Adjust the size of the background image */
+  background-position: center; /* Set the position of the background image */
+  background-repeat: no-repeat; /* Prevent the background image from repeating */
+  height: 250vh;
+}
+
+h1 {
+  color: red;
+}
+
+.navbar-brand {
+  color: red;
+}
+
+nav {
+  background-color: rgba(240, 248, 255, 0);
+}
+
+.nav-link,
+.active {
+  color: white;
+}
+.nav-links {
+  color: white;
+}
+
+.btn-group {
+  margin-right: 20px;
+}
+
+.top {
+  margin-left: 10px;
+}
+
+.avatar {
+  height: 30px;
+  width: 30px;
+  margin-left: 55px;
+}
+
+.box {
+  margin-top: 300px;
+  margin-right: 800px;
+  justify-content: end;
+}
+
+.badge {
+  cursor: pointer;
+}
+
+.rank {
+  margin-bottom: 30px;
+  margin-right: 35px;
+}
+
+.container {
+  margin-top: 75px;
+}
+
+.titles {
+  color: white;
+  margin-right: 40px;
+}
+
+.movies {
+  height: 180px;
+  width: 200px;
+  margin-right: 5px;
+  /* justify-content: space-around; */
+}
