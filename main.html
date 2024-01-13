@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/0167b73b98.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Movie Database</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">&nbsp;&nbsp;NEXTFLIX</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a style="color: white;" class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">TV Shows</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Movies</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">New & Popular</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">My List</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Browse by Languages</a>
+            </li>
+          </ul>
+          <form class="d-flex" role="search">
+            <p class="top" style="color: white;"><i class="fa-solid fa-magnifying-glass fa-xl magnifyingGlass"></i></p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <p class="top"  style="color: white;">Kids</p>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <p class="top"  style="color: white;"><i class="fa-solid fa-bell fa-xl"></i></p>
+            <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+
+            <div class="btn-group">
+              <img class="avatar" src="/images/Netflix-avatar.png" alt="">
+              <!-- <button type="button" class="btn"></button> -->
+              <button
+              style="color: white;"
+                type="button"
+                class="btn  dropdown-toggle dropdown-toggle-split"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <span class="visually-hidden"></span>
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#"></a></li>
+              </ul>
+            </div>
+            <!-- <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            /> -->
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <section class="box">
+      <h5 class="rank" style="color: white;">#3 in Movies Today</h5>
+      <p id="description" style="color: white;">
+        John Wick" is a 2014 action thriller starring Keanu Reeves as a former hitman seeking revenge for his dog's killing. Known for its intense action and stylish choreography, the film has become a cult favorite with sequels.</p>
+      <h2>
+        <span class="badge bg-secondary"
+          > <i class="fa-solid fa-play"></i
+        > Play</span>&nbsp;
+        <span class="badge bg-secondary"> <i class="fa-solid fa-circle-info"></i> More Info </span>
+         
+        </span>
+      </h2>
+    </section>
+
+    <!-- <p class="titles">Only on NEXTFLIX</p> -->
+    <section class="container">
+     
+
+      <img class="movieSize" src="/images/Home - Netflix_files/AAAABc4dP5AWTXg9FVHQKMIBcKn1-_00_YrelQUQYXva_kidxB84QCkF-n6eK3tJIpU53XWibyHJkxDnxh0qrzcTLFMwShVJMIWekhc.webp" alt="">
+      <img class="movieSize" src="/images/Home - Netflix_files/AAAABczWWUI8LbvjP-7e5gOONyurajCqIxkWLkIekDF-zD4shnmNmc51pSMRkNp3UHaizA6N8ndSZMoMaPQPG-41bASWE15udHHHD8gz2KR-Usi6PBw7Pyuw2hENfqAlk37jL32H.jpg" alt="">
+      <img class="movieSize" src="/images/Home - Netflix_files/AAAABaXB18-nmbjAjXeSwk1GkMoJdL56C-W2_1Wiz6_Wuy232qImrqKMRVNUr8mGerVgrVBOPgW_3j4d3Pbwrz8Cw9UbvZrdz0ccIrU.webp" class="img-thumbnail" alt="...">
+      <!-- <img class="moviesSize" src="/images/Home - Netflix_files/AAAABb3cWIVLSZ0y7pouVBw9a1Qz-rWZdub-0NQdbUhXlgDkGudVJT5YrT7wLXakwsJiZ7FNO6yOV5Tyy_igeie2516ldSv7CwvTHaiWRTheAhBEYF0YObYNn84ob-qYWZ8sbXUWQ9hQTItPcLmJw3EPrBQuALMxbeARXXtYVZ8PG4BTF_pG3v6a2SaC90GXpoCuBkl0fqqzAKtpqO1onWIhEnKQN-s6G8iYqO1GCvd5B3fQL5jrv8VDwat.jpg" class="img-thumbnail" alt="...">
+      <img class="moviesSize" src="/images/Home - Netflix_files/AAAABbKL3ebGnNcVWPqgFn207ZLUR1nV4RAPOyBzso6p5ZJJ59JtVoyC_zp-lCKdBnW4nHirTWA-NXa2SElYHPdPUXFLeYOol9EewMcjRPUQEnG8xTWoPXlohImVN8wH2CjNnnwxrXS1hbAFsQytKCyadPHTCMx-lMYqEXhEqRHAe4654SOjs6wR9MTtxrdIul1HWOcr5lsxYKVnztnXMS-8NP3NRX23mXoFJdb45h0WmfaT6S8SIizH-C.webp" class="img-thumbnail" alt="..."> -->
+      <img class="movieSize" src="/images/Home - Netflix_files/AAAABf7r_ZnXioBeeivuuKksX_IkIbdqSHDAq1mckaBSV8F7MWj-3RvknG5L9Hu3r3tPzEpl1pn-V5zK4VrKUjJmbjUhLdqKoHJH67M.webp" class="img-thumbnail" alt="...">
+      <img class="movieSize" src="/images/Home - Netflix_files/AAAABdS8Vqu6LcWaZJuQ8U0EjfLmGZURMMUBYYEf-iC-xbl0LdVJ9ImPhOXcGqY5zjDT8XmBXv2dAiEcpy3lwLPcyKnsdOwGrzVbAwU.webp" class="img-thumbnail" alt="...">
+      <img class="movieSize" src="/images/Home - Netflix_files/AAAABdcoC9nc1qrVKa0oMy8kAvJy5gL_3aFqAtualTyfkSvOX3ZxcZILJD9E6hHTKRP_ZxDT13rS4IhMNHs4_KcVvIwW91MSAe4JmFs.webp" alt="">
+      <img class="movieSize" src="/images/Home - Netflix_files/AAAABWGM-pl9YwIaSSKBu-DTkUON3DGt0JzJ9if7SW5-bf-k24pvb_MLNkUzUlh0rYN63b5YEuTa-89aRbUYSQpFmsVcoMd5tfCcSEcAUBQdcHpJDQ97JyEWjnQNt4CPe5LFR3BDGkp5Iam4Jr8sd-6lW3OnDBVIR8GEHB5_qjSjnBxbFJg4AhO8xJuDFWdRPQv4YimkJpA88I7iOXTmDtZwunR9aZjgPqg-TQJ9Aj89gN8wsQqHCHjxxG.webp" alt="">
+
+    </section>
+
+    
+    
+
+    <section class="movieSection">
+      <div class="searchInput">
+
+
+          <div class="searchBar">       <label for="gsearch">Search Movie</label>
+            <input type="search" id="gsearch" class="search" name="gsearch">
+            <button class="searchBtn" type="submit">Search</button></div>
+   
+
+      
+      </div>
+
+     
+      <button id="shuffleButton"><i class="fa-solid fa-shuffle"></i> Shuffle Movie</button>
+
+      <div id="movieContainer">
+        <div id="errorContainer">
+       
+          <!-- Movie details will be displayed here -->
+      </div>
+    </section>
+  </body>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"
+  ></script>
+
+  <script src="script.js"></script>
+
+</html>

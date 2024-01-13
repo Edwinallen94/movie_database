@@ -1,38 +1,63 @@
 (function () {
-  /**
-   *
-   * As a user, I should be able to a pick Rick and Morty character from a drop-down, and it should display an image of that character.
-   *
-   * For this exercise, use the API to populate the dropdown.
-   * After the dropdown has been populated, if the user selects a character an image should appear displaying the correct character.
-   *
-   *
-   * Create a list of characters using the API
-   * This is the URL for the API you will be using. The method should be GET.
-   * To get all characters use this
-   * https://rickandmortyapi.com/documentation/#get-all-characters
-   * To get an individual character use this:
-   * https://rickandmortyapi.com/documentation/#get-a-single-character
-   *
-   * Use the AXIOS library to make AJAX requests.
-   */
+  const apiUrl =
+    "https://api.themoviedb.org/3/trending/movie/day?language=en-US";
 
-  const dropdown = document.querySelector("#dropdown");
-
-  axios({
-    method: "GET",
-    url: "https://api.themoviedb.org/3/configuration",
-    headers: {
-      accept: "application/json",
-      Authorization:
-        "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzOWY4MTVhMzY5MmViZjgzZTk0MTY3NWQxMTdkZjExYyIsInN1YiI6IjY1OWI0Y2E4NGQwZThkMDI1OWQ1YTU1ZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.BFIXm9RvoYuG5CNzzT6J2wole8zvUUKtf8icpoEG1mQ",
-    },
-  })
-    .then((response) => {
-      console.log(response);
-    })
-    .catch((err) => {
-      // Usually, you should display an error message on the screen inside of doing console.error
-      console.error(err);
+  async function getRandomMovie() {
+    let data = await axios({
+      method: "get",
+      url: apiUrl,
+      headers: {
+        accept: "application/json",
+        Authorization:
+          "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzOWY4MTVhMzY5MmViZjgzZTk0MTY3NWQxMTdkZjExYyIsInN1YiI6IjY1OWI0Y2E4NGQwZThkMDI1OWQ1YTU1ZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.BFIXm9RvoYuG5CNzzT6J2wole8zvUUKtf8icpoEG1mQ",
+      },
     });
+
+    const randomIndex = Math.floor(Math.random() * data.data.results.length);
+    const randomMovie = data.data.results[randomIndex];
+
+    const movieContainer = document.getElementById("movieContainer");
+    movieContainer.innerHTML = `
+          <h2>${randomMovie.title}</h2>
+          <img src="https://image.tmdb.org/t/p/w500${randomMovie.poster_path}" alt="${randomMovie.title} Poster">
+          <p>${randomMovie.overview}</p>
+        `;
+  }
+
+  async function searchMovie() {
+    let userSearchInput = document.querySelector("#gsearch").value;
+    console.log(userSearchInput);
+
+    try {
+      let data = await axios({
+        url: `https://api.themoviedb.org/3/search/movie?query=${userSearchInput}&include_adult=false&language=en-US&page=1`,
+        method: "GET",
+        headers: {
+          accept: "application/json",
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzOWY4MTVhMzY5MmViZjgzZTk0MTY3NWQxMTdkZjExYyIsInN1YiI6IjY1OWI0Y2E4NGQwZThkMDI1OWQ1YTU1ZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.BFIXm9RvoYuG5CNzzT6J2wole8zvUUKtf8icpoEG1mQ",
+        },
+      });
+      console.log(data);
+      const movies = data.data.results;
+      if (movies.length > 0) {
+        const movie = movies[0];
+        const movieContainer = document.getElementById("movieContainer");
+        movieContainer.innerHTML = `
+              <h2>${movie.title}</h2>
+              <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title} Poster">
+              <p>${movie.overview}</p>
+            `;
+      } else {
+        console.log("No results found.");
+      }
+    } catch (error) {
+      console.log(error, "IT NO WORK");
+    }
+  }
+
+  const searchBtn = document.querySelector(".searchBtn");
+  searchBtn.addEventListener("click", searchMovie);
+  const shuffleButton = document.getElementById("shuffleButton");
+  shuffleButton.addEventListener("click", getRandomMovie);
 })();
